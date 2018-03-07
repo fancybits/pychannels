@@ -4,7 +4,7 @@
 
 # PyChannels!!
 
-This is a simple client that lets you talk to the [Channels](https://getchannels.com) app while it's running.
+This is a simple Python client that lets you talk to the [Channels](https://getchannels.com) app while it's running.
 
 ## Installation
 
