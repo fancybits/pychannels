@@ -6,7 +6,11 @@
 
 This is a simple client that lets you talk to the [Channels](https://getchannels.com) app while it's running.
 
-## How to use it
+## Installation
+
+You can install PyChannels from PyPi using `pip3 install pychannels` (use pip if you're still using Python 2).
+
+## Usage
 
 Just create a new client and give it the host name of the device that Channels is running on. You can optionally pass in a port, which defaults to `57000`.
 
