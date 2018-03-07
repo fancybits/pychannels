@@ -1,3 +1,7 @@
+<p align="center">
+<a href="https://getchannels.com"><img src="http://getchannels.com/assets/img/icon-1024.png" width="256"></a>
+</p>
+
 # PyChannels!!
 
 This is a simple client that lets you talk to the [Channels](https://getchannels.com) app while it's running.
