@@ -105,6 +105,9 @@ You can control Channels with these methods.
 #### Toggle Mute
     client.toggle_mute()
 
+#### Toggle Pause
+    client.toggle_pause()
+
 #### Pause
     client.pause()
 
@@ -133,6 +136,11 @@ Skip to the next chapter mark. This is for recordings made with Channels DVR tha
 #### Skip Backward
     client.skip_backward()
 Skip to the previous chapter mark. This is for recordings made with Channels DVR that have their commercials indexed.
+
+#### Previous Channel
+    client.previous_channel()
+Jump back to the last watched channel.
+
 
 #### Play Channel
     client.play_channel(channel_number)
