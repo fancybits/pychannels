@@ -68,6 +68,10 @@ class Channels(object):
         else:
         	return []
 
+    def toggle_pause(self):
+        """Toggle paused state and returns the current state."""
+        return self._command('toggle_pause')
+
     def pause(self):
         """Set playback to paused and returns the current state."""
         return self._command('pause')
@@ -100,6 +104,10 @@ class Channels(object):
     def skip_backward(self):
         """Skip backward to the previous chapter mark."""
         return self._command('skip_backward')
+
+    def previous_channel(self):
+        """Jump back to the last channel."""
+        return self._command('previous_channel')
 
     def toggle_muted(self):
         """Mute and returns the current state."""
