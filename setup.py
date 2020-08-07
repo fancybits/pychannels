@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='pychannels',
-    version="1.1.0",
+    version="1.2.0",
     packages=['pychannels',],
     license='The MIT License',
     description = 'API client for the Channels app - https://getchannels.com',
