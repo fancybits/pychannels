@@ -13,6 +13,7 @@ https://getchannels.com
 """
 
 import requests
+import json
 
 TIMEOUT = 1
 
