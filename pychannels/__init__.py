@@ -116,10 +116,8 @@ class Channels(object):
 
     def play_channel(self, channel_number):
         """Set a channel to play and returns the current state."""
-        return self._request('POST', '/api/play/channel/' +
-                             str(channel_number))
+        return self._command('play/channel/' + str(channel_number))
 
     def play_recording(self, recording_id):
         """Set a recording to play and returns the current state."""
-        return self._request('POST', '/api/play/recording/' +
-                             str(recording_id))
+        return self._command('play/recording/' + str(recording_id))
