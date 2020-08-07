@@ -78,6 +78,10 @@ class Channels(object):
         """Toggle captions state and returns the current state."""
         return self._command('toggle_cc')
 
+    def toggle_record(self):
+        """Record the program playing on the current channel."""
+        return self._command('toggle_record')
+
     def channel_up(self):
         """Change the channel and returns the current state."""
         return self._command('channel_up')
