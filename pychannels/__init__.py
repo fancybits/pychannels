@@ -30,16 +30,17 @@ class Channels(object):
     def _request(self, method, path, params=None):
         """Make the actual request and returns the parsed response."""
         url = self._base_url + path
+        headers = {'Content-Type': 'application/json'}
 
         try:
             if method == 'GET':
-                response = requests.get(url, timeout=TIMEOUT)
+                response = requests.get(url, timeout=TIMEOUT, headers=headers)
             elif method == "POST":
-                response = requests.post(url, params, timeout=TIMEOUT)
+                response = requests.post(url, json=params, timeout=TIMEOUT, headers=headers)
             elif method == "PUT":
-                response = requests.put(url, params, timeout=TIMEOUT)
+                response = requests.put(url, json=params, timeout=TIMEOUT, headers=headers)
             elif method == "DELETE":
-                response = requests.delete(url, timeout=TIMEOUT)
+                response = requests.delete(url, timeout=TIMEOUT, headers=headers)
 
             if response:
                 return response.json()
