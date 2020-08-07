@@ -13,6 +13,7 @@ https://getchannels.com
 """
 
 import requests
+import json
 
 TIMEOUT = 1
 
@@ -30,16 +31,17 @@ class Channels(object):
     def _request(self, method, path, params=None):
         """Make the actual request and returns the parsed response."""
         url = self._base_url + path
+        headers = {'Content-Type': 'application/json'}
 
         try:
             if method == 'GET':
-                response = requests.get(url, timeout=TIMEOUT)
+                response = requests.get(url, timeout=TIMEOUT, headers=headers)
             elif method == "POST":
-                response = requests.post(url, params, timeout=TIMEOUT)
+                response = requests.post(url, json=params, timeout=TIMEOUT, headers=headers)
             elif method == "PUT":
-                response = requests.put(url, params, timeout=TIMEOUT)
+                response = requests.put(url, json=params, timeout=TIMEOUT, headers=headers)
             elif method == "DELETE":
-                response = requests.delete(url, timeout=TIMEOUT)
+                response = requests.delete(url, timeout=TIMEOUT, headers=headers)
 
             if response:
                 return response.json()
@@ -67,6 +69,26 @@ class Channels(object):
             return response
         else:
         	return []
+
+    def toggle_mute(self):
+        """Toggle mute state and returns the current state."""
+        return self._command('toggle_mute')
+
+    def toggle_cc(self):
+        """Toggle captions state and returns the current state."""
+        return self._command('toggle_cc')
+
+    def channel_up(self):
+        """Change the channel and returns the current state."""
+        return self._command('channel_up')
+
+    def channel_down(self):
+        """Change the channel and returns the current state."""
+        return self._command('channel_down')
+
+    def previous_channel(self):
+        """Jump back to the last channel."""
+        return self._command('previous_channel')
 
     def toggle_pause(self):
         """Toggle paused state and returns the current state."""
@@ -105,20 +127,22 @@ class Channels(object):
         """Skip backward to the previous chapter mark."""
         return self._command('skip_backward')
 
-    def previous_channel(self):
-        """Jump back to the last channel."""
-        return self._command('previous_channel')
-
     def toggle_muted(self):
         """Mute and returns the current state."""
         return self._command('toggle_mute')
 
     def play_channel(self, channel_number):
         """Set a channel to play and returns the current state."""
-        return self._request('POST', '/api/play/channel/' +
-                             str(channel_number))
+        return self._command('play/channel/' + str(channel_number))
 
     def play_recording(self, recording_id):
         """Set a recording to play and returns the current state."""
-        return self._request('POST', '/api/play/recording/' +
-                             str(recording_id))
+        return self._command('play/recording/' + str(recording_id))
+
+    def navigate(self, section):
+        """Change to a section of the app by providing its name and returns success status"""
+        return self._command('navigate/' + section)
+
+    def notify(self, title, message):
+        """Present a notification while playing video and returns success status."""
+        return self._request('POST', '/api/notify', {'title': title, 'message': message})
