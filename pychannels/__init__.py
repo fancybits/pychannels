@@ -69,6 +69,22 @@ class Channels(object):
         else:
         	return []
 
+    def toggle_mute(self):
+        """Toggle mute state and returns the current state."""
+        return self._command('toggle_mute')
+
+    def toggle_cc(self):
+        """Toggle captions state and returns the current state."""
+        return self._command('toggle_cc')
+
+    def channel_up(self):
+        """Change the channel and returns the current state."""
+        return self._command('channel_up')
+
+    def channel_down(self):
+        """Change the channel and returns the current state."""
+        return self._command('channel_down')
+
     def previous_channel(self):
         """Jump back to the last channel."""
         return self._command('previous_channel')
@@ -121,3 +137,11 @@ class Channels(object):
     def play_recording(self, recording_id):
         """Set a recording to play and returns the current state."""
         return self._command('play/recording/' + str(recording_id))
+
+    def navigate(self, section):
+        """Change to a section of the app by providing its name and returns success status"""
+        return self._command('navigate/' + section)
+
+    def notify(self, title, message):
+        """Present a notification while playing video and returns success status."""
+        return self._request('POST', '/api/notify', {'title': title, 'message': message})
