@@ -103,44 +103,56 @@ This returns an array of channel Dicts. Here's an example.
 You can control Channels with these methods.
 
 #### Toggle Mute
-    client.toggle_mute()
+    client.toggle_mute
+
+#### Toggle Captions
+    client.toggle_cc
+
+#### Channel Up
+    client.channel_up
+
+#### Channel Down
+    client.channel_down
+
+#### Previous Channel
+    client.previous_channel
+Jump back to the last watched channel.
 
 #### Toggle Pause
-    client.toggle_pause()
+    client.toggle_pause
+
+#### Toggle Recording
+    client.toggle_record
+Record the program playing on the current channel
 
 #### Pause
-    client.pause()
+    client.pause
 
 #### Resume
-    client.resume()
+    client.resume
 
 #### Stop
-    client.stop()
+    client.stop
 
 #### Seek By
     client.seek_by(seconds)
 Seek forward or backward on the timeline with an inputted number of seconds. Negative values go backward.
 
 #### Seek Forward
-    client.seek_forward()
+    client.seek_forward
 Seek forward in the timeline by the set number of seconds in Channels.
 
-#### Seek Backward
-    client.seek_backward()
-Seek backward in the timeline by the set number of seconds in Channels.
-
 #### Skip Forward
-    client.skip_forward()
+    client.skip_forward
 Skip to the next chapter mark. This is for recordings made with Channels DVR that have their commercials indexed.
 
+#### Seek Backward
+    client.seek_backward
+Seek backward in the timeline by the set number of seconds in Channels.
+
 #### Skip Backward
-    client.skip_backward()
+    client.skip_backward
 Skip to the previous chapter mark. This is for recordings made with Channels DVR that have their commercials indexed.
-
-#### Previous Channel
-    client.previous_channel()
-Jump back to the last watched channel.
-
 
 #### Play Channel
     client.play_channel(channel_number)
@@ -148,7 +160,15 @@ Play a channel by passing it the channel number.
 
 #### Play Recording
     client.play_recording(recording_id)
-Play a recording from Channels DVR
+Play a recording from Channels.
+
+#### Navigate
+    client.navigate(section)
+Change to a section of the app by providing its name. EX, `Guide`, `Library`, `Live TV`
+
+#### Notify
+    client.notify(title, message)
+Present a notification while playing video.
 
 ## Contributions
 
