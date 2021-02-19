@@ -8,7 +8,7 @@ the Channels app on your network. Channels runs on streaming boxes like the
 Apple TV and NVIDIA SHIELD. This is a simple client. Learn more in the README.
 https://getchannels.com/api
 https://getchannels.com
-:copyright: (c) 2018 by Fancy Bits, LLC.
+:copyright: (c) 2020 by Fancy Bits, LLC.
 :license: MIT, see LICENSE for more details
 """
 
